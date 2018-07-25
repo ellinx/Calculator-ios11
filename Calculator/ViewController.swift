@@ -37,30 +37,37 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func onPressDivide(_ sender: UIButton) {
-        if !expressionStr.isEmpty && expressionStr.last! >= "0" && expressionStr.last! <= "9" {
-            expressionStr += "/"
+    @IBAction func onPressNumber(_ sender: UIButton) {
+        let numStr = String(sender.tag)
+        if Int(expressionStr)==0 {
+            expressionStr = numStr
+        } else {
+            expressionStr += numStr
         }
         expression.text = expressionStr
     }
     
-    @IBAction func onPressMultiply(_ sender: UIButton) {
-        if !expressionStr.isEmpty && expressionStr.last! >= "0" && expressionStr.last! <= "9" {
-            expressionStr += "*"
+    @IBAction func onPressOperator(_ sender: UIButton) {
+        var op = ""
+        switch sender.tag {
+        case 0:
+            op = "+"
+            break
+        case 1:
+            op = "-"
+            break
+        case 2:
+            op = "*"
+            break
+        case 3:
+            op = "/"
+            break
+        default:
+            print("Unknow operator!")
         }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressMinus(_ sender: UIButton) {
+        
         if !expressionStr.isEmpty && expressionStr.last! >= "0" && expressionStr.last! <= "9" {
-            expressionStr += "-"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressPlus(_ sender: UIButton) {
-        if !expressionStr.isEmpty && expressionStr.last! >= "0" && expressionStr.last! <= "9" {
-            expressionStr += "+"
+            expressionStr += op
         }
         expression.text = expressionStr
     }
@@ -122,95 +129,6 @@ class ViewController: UIViewController {
         expression.text = expressionStr
     }
     
-    @IBAction func onPressOne(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "1"
-        } else {
-            expressionStr += "1"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressTwo(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "2"
-        } else {
-            expressionStr += "2"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressThree(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "3"
-        } else {
-            expressionStr += "3"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressFour(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "4"
-        } else {
-            expressionStr += "4"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressFive(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "5"
-        } else {
-            expressionStr += "5"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressSix(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "6"
-        } else {
-            expressionStr += "6"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressSeven(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "7"
-        } else {
-            expressionStr += "7"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressEight(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "8"
-        } else {
-            expressionStr += "8"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressNine(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "9"
-        } else {
-            expressionStr += "9"
-        }
-        expression.text = expressionStr
-    }
-    
-    @IBAction func onPressZero(_ sender: UIButton) {
-        if Int(expressionStr)==0 {
-            expressionStr = "0"
-        } else {
-            expressionStr += "0"
-        }
-        expression.text = expressionStr
-    }
     
 }
 
